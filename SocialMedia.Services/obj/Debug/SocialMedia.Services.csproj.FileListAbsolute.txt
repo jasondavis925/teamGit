@@ -14,3 +14,9 @@ C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Servi
 C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\obj\Debug\SocialMedia.Services.csproj.CopyComplete
 C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\obj\Debug\SocialMedia.Services.dll
 C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\obj\Debug\SocialMedia.Services.pdb
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Data.dll
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Models.dll
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Data.pdb
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Data.dll.config
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Models.pdb
+C:\Users\judav\OneDrive\Documents\!ELEVENFIFTYPROJECTS\teamGit\SocialMedia.Services\bin\Debug\SocialMedia.Models.dll.config
