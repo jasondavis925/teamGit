@@ -21,6 +21,7 @@ namespace SocialMedia.Data
         
         //[ForeignKey(nameof(Reply))]
         //public int ReplyId { get; set; }
-        //public virtual Reply reply { get; set; }
+        //public virtual Reply reply { get; set; } whats up studs
+
     }
 }
