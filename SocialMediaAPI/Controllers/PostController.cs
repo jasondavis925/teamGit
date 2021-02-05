@@ -36,6 +36,13 @@ namespace SocialMediaAPI.Controllers
                 return postService;
         }
 
+        public IHttpActionResult Get()
+        {
+            PostService postService = CreatePostService();
+            var posts = postService.GetUserPosts();
+            return Ok(posts);
+        }
+
         public IHttpActionResult Get(int id)
         {
             PostService postService = CreatePostService();
