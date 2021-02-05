@@ -214,7 +214,6 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-<<<<<<< HEAD:SocialMediaAPI/SocialMediaAPI.csproj
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
 =======
