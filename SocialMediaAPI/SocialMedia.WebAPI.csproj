@@ -214,10 +214,13 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7f9b84facfffa5269ac2046731d0ea33043e14df
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-=======
->>>>>>> 48e4333340f8cf3f588335f08c5a7240c0593b6d:SocialMediaAPI/SocialMedia.WebAPI.csproj
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
