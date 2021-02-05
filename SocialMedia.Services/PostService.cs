@@ -35,6 +35,24 @@ namespace SocialMedia.Services
             }
         }
 
+        public PostDetail GetPostById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Posts
+                        .Single(e => e.PostId == id && e.AuthorId == _userId);
+                return
+                    new PostDetail
+                    {
+                        PostId = entity.PostId,
+                        Title = entity.Title,
+                        Content = entity.Text
+                    };
+            }
+        }
+
         public IEnumerable<PostListItem> GetUserPosts()
         {
             using (var ctx = new ApplicationDbContext())
