@@ -25,6 +25,7 @@ namespace SocialMedia.Services
                     AuthorId = _userId,
                     Title = Model.Title,
                     Text = Model.Content,
+                    CreatedUtc = DateTimeOffset.Now
 
                 };
 
@@ -48,7 +49,9 @@ namespace SocialMedia.Services
                     {
                         PostId = entity.PostId,
                         Title = entity.Title,
-                        Content = entity.Text
+                        Content = entity.Text,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -66,8 +69,8 @@ namespace SocialMedia.Services
                                 new PostListItem
                                 {
                                     PostId = e.PostId,
-                                    Title = e.Title
-
+                                    Title = e.Title,
+                                    CreatedUtc = e.CreatedUtc
                                 }
                         );
                 return query.ToArray();
@@ -98,6 +101,7 @@ namespace SocialMedia.Services
                         .Single(e => e.PostId == model.PostId && e.AuthorId == _userId);
                 entity.Title = model.Title;
                 entity.Text = model.Content;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }

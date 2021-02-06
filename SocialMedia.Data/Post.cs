@@ -22,10 +22,10 @@ namespace SocialMedia.Data
         [Required]
         public string Text { get; set; }
 
-        //[Required]
-        //public DateTimeOffset CreatedUtc { get; set; }
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
 
-        //public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
         public virtual List<Comment> Comments { get; set; } = new List<Comment>();
     }
