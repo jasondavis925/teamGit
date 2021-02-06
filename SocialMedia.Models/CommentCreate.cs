@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    class CommentCreate
+    public class CommentCreate
     {
         [Required]
         [MaxLength(10000)]
