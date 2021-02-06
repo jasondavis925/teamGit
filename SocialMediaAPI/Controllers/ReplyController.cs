@@ -10,54 +10,53 @@ using System.Web.Http;
 
 namespace SocialMediaAPI.Controllers
 {
-    [Authorize]
-    public class PostController : ApiController
+    public class ReplyController : ApiController
     {
-        public IHttpActionResult Post(PostCreate post)
+        public IHttpActionResult Reply(ReplyCreate reply)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var service = CreatePostService();
+            var service = CreateReplyService();
 
-            if (!service.CreatePost(post))
+            if (!service.CreateReply(reply))
             {
                 return InternalServerError();
             }
 
             return Ok();
         }
-        private PostService CreatePostService()
+        private ReplyService CreateReplyService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(userId);
-                return postService;
+            var replyService = new ReplyService(userId);
+            return replyService;
         }
 
         public IHttpActionResult Get()
         {
-            PostService postService = CreatePostService();
-            var posts = postService.GetUserPosts();
-            return Ok(posts);
+            ReplyService replyService = CreateReplyService();
+            var replies = replyService.GetUserReplies();
+            return Ok(replies);
         }
 
         public IHttpActionResult Get(int id)
         {
-            PostService postService = CreatePostService();
-            var post = postService.GetPostById(id);
+            ReplyService replyService = CreateReplyService();
+            var reply = replyService.GetReplyById(id);
             return Ok();
         }
 
-        public IHttpActionResult Put(PostEdit post)
+        public IHttpActionResult Put(ReplyEdit reply)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreatePostService();
+            var service = CreateReplyService();
 
-            if (!service.UpdatePost(post))
+            if (!service.UpdateReply(reply))
                 return InternalServerError();
 
             return Ok();
@@ -65,11 +64,13 @@ namespace SocialMediaAPI.Controllers
 
         public IHttpActionResult Delete(int Id)
         {
-            var service = CreatePostService();
-            if (!service.DeletePost(Id))
+            var service = CreateReplyService();
+            if (!service.DeleteReply(Id))
                 return InternalServerError();
 
             return Ok();
+
         }
+
     }
 }

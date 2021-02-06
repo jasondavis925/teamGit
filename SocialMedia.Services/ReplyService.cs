@@ -8,105 +8,96 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Services
 {
-    public class PostService
+    public class ReplyService
     {
         private readonly Guid _userId;
 
-        public PostService(Guid userId)
+        public ReplyService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreatePost(PostCreate Model)
+        public bool CreateReply(ReplyCreate Model)
         {
             var entity =
-                new Post()
+                new Reply()
                 {
                     AuthorId = _userId,
-                    Title = Model.Title,
                     Text = Model.Content,
-                    CreatedUtc = DateTimeOffset.Now
 
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Posts.Add(entity);
+                ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public PostDetail GetPostById(int id)
+        public ReplyDetail GetReplyById(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Posts
-                        .Single(e => e.PostId == id && e.AuthorId == _userId);
+                        .Replies
+                        .Single(e => e.ReplyId == id && e.AuthorId == _userId);
                 return
-                    new PostDetail
+                    new ReplyDetail
                     {
-                        PostId = entity.PostId,
-                        Title = entity.Title,
-                        Content = entity.Text,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ReplyId = entity.ReplyId,
+                        Content = entity.Text
                     };
             }
         }
 
-        public IEnumerable<PostListItem> GetUserPosts()
+        public IEnumerable<ReplyListItem> GetUserReplies()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Posts
+                        .Replies
                         .Where(e => e.AuthorId == _userId)
                         .Select(
                             e =>
-                                new PostListItem
+                                new ReplyListItem
                                 {
-                                    PostId = e.PostId,
-                                    Title = e.Title,
-                                    CreatedUtc = e.CreatedUtc
+                                    ReplyId = e.ReplyId,
+
                                 }
                         );
                 return query.ToArray();
             }
         }
 
-        public bool DeletePost(int postId)
+        public bool DeleteReply(int replyId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Posts
-                        .Single(e => e.PostId == postId && e.AuthorId == _userId);
-                ctx.Posts.Remove(entity);
+                        .Replies
+                        .Single(e => e.ReplyId == replyId && e.AuthorId == _userId);
+                ctx.Replies.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool UpdatePost(PostEdit model)
+        public bool UpdateReply(ReplyEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Posts
-                        .Single(e => e.PostId == model.PostId && e.AuthorId == _userId);
-                entity.Title = model.Title;
+                        .Replies
+                        .Single(e => e.ReplyId == model.ReplyId && e.AuthorId == _userId);
                 entity.Text = model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-
 
     }
 }

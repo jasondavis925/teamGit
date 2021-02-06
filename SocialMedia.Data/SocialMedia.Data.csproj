@@ -86,12 +86,51 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202102050310339_Updated.cs" />
+    <Compile Include="Migrations\202102050310339_Updated.Designer.cs">
+      <DependentUpon>202102050310339_Updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102060115247_LukeAttemptedMig.cs" />
+    <Compile Include="Migrations\202102060115247_LukeAttemptedMig.Designer.cs">
+      <DependentUpon>202102060115247_LukeAttemptedMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102061510437_UpdatedLuke.cs" />
+    <Compile Include="Migrations\202102061510437_UpdatedLuke.Designer.cs">
+      <DependentUpon>202102061510437_UpdatedLuke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102061518037_AddedReply.cs" />
+    <Compile Include="Migrations\202102061518037_AddedReply.Designer.cs">
+      <DependentUpon>202102061518037_AddedReply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102061647065_update2.cs" />
+    <Compile Include="Migrations\202102061647065_update2.Designer.cs">
+      <DependentUpon>202102061647065_update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102050310339_Updated.resx">
+      <DependentUpon>202102050310339_Updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102060115247_LukeAttemptedMig.resx">
+      <DependentUpon>202102060115247_LukeAttemptedMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061510437_UpdatedLuke.resx">
+      <DependentUpon>202102061510437_UpdatedLuke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061518037_AddedReply.resx">
+      <DependentUpon>202102061518037_AddedReply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061647065_update2.resx">
+      <DependentUpon>202102061647065_update2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

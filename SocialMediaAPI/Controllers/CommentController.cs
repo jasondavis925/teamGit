@@ -10,54 +10,53 @@ using System.Web.Http;
 
 namespace SocialMediaAPI.Controllers
 {
-    [Authorize]
-    public class PostController : ApiController
+    public class CommentController : ApiController
     {
-        public IHttpActionResult Post(PostCreate post)
+        public IHttpActionResult Comment(CommentCreate comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var service = CreatePostService();
+            var service = CreateCommentService();
 
-            if (!service.CreatePost(post))
+            if (!service.CreateComment(comment))
             {
                 return InternalServerError();
             }
 
             return Ok();
         }
-        private PostService CreatePostService()
+        private CommentService CreateCommentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(userId);
-                return postService;
+            var commentService = new CommentService(userId);
+            return commentService;
         }
 
         public IHttpActionResult Get()
         {
-            PostService postService = CreatePostService();
-            var posts = postService.GetUserPosts();
-            return Ok(posts);
+            CommentService commentService = CreateCommentService();
+            var comments = commentService.GetUserComments();
+            return Ok(comments);
         }
 
         public IHttpActionResult Get(int id)
         {
-            PostService postService = CreatePostService();
-            var post = postService.GetPostById(id);
+            CommentService commentService = CreateCommentService();
+            var comment = commentService.GetCommentById(id);
             return Ok();
         }
 
-        public IHttpActionResult Put(PostEdit post)
+        public IHttpActionResult Put(CommentEdit comment)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreatePostService();
+            var service = CreateCommentService();
 
-            if (!service.UpdatePost(post))
+            if (!service.UpdateComment(comment))
                 return InternalServerError();
 
             return Ok();
@@ -65,11 +64,12 @@ namespace SocialMediaAPI.Controllers
 
         public IHttpActionResult Delete(int Id)
         {
-            var service = CreatePostService();
-            if (!service.DeletePost(Id))
+            var service = CreateCommentService();
+            if (!service.DeleteComment(Id))
                 return InternalServerError();
 
             return Ok();
+
         }
     }
 }

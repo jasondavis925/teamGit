@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Models
 {
-    public class CommentListItem
+    public class ReplyListItem
     {
-        public int CommentId { get; set; }
+        public int ReplyId { get; set; }
         public string Content { get; set; }
+
     }
 }
