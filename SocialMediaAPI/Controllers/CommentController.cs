@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SocialMedia.Data;
 using SocialMedia.Models;
 using SocialMedia.Services;
 using System;
@@ -12,6 +13,9 @@ namespace SocialMediaAPI.Controllers
 {
     public class CommentController : ApiController
     {
+            private ApplicationDbContext _context = new ApplicationDbContext();
+
+        [HttpPost]
         public IHttpActionResult Comment(CommentCreate comment)
         {
             if (!ModelState.IsValid)
@@ -19,6 +23,11 @@ namespace SocialMediaAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+            Post post = _context.Posts.Find(comment.PostId);
+            if(post == null)
+            {
+                return BadRequest("Request Body Can't Be Empty");
+            }
             var service = CreateCommentService();
 
             if (!service.CreateComment(comment))
