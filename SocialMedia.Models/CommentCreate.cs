@@ -12,5 +12,7 @@ namespace SocialMedia.Models
         [Required]
         [MaxLength(10000)]
         public string Content { get; set; }
+
+        public int PostId { get; set; }
     }
 }

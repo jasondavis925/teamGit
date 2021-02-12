@@ -24,7 +24,7 @@ namespace SocialMedia.Services
                 {
                     AuthorId = _userId,
                     Text = Model.Content,
-
+                    PostId = Model.PostId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -64,7 +64,7 @@ namespace SocialMedia.Services
                                 new CommentListItem
                                 {
                                     CommentId = e.CommentId,
-
+                                    Content = e.Text
                                 }
                         );
                 return query.ToArray();
